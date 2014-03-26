@@ -1,4 +1,4 @@
-vagrant_wp_provision
+Vagrant and Wordpress
 ====================
 
 A set of files to provision Wordpress on Vagrant. It uses a combination of tools such as Vagrant, VirtualBox, and WP_CLI to get a test environment for WordPress up and going quickly.
