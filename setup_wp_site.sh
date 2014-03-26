@@ -18,7 +18,7 @@ echo -n "New database password: "
 stty -echo 
 read 
 stty echo 
-echo 
+echo   
 
 #DB ADMIN
 DB_ADMIN=$DB_NAME-admin
@@ -26,7 +26,7 @@ DB_ADMIN=$DB_NAME-admin
 echo "Be ready to enter admin password for database"
 
 # Create the database, user, and grant privileges
-echo mysql -u $DB_ROOT -p  -e "CREATE DATABASE $DB_NAME; CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS'; GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';"
+mysql -u $DB_ROOT -p  -e "CREATE DATABASE $DB_NAME; CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS'; GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';"
 
 
 # Install to current folder
@@ -34,8 +34,8 @@ mkdir -p /var/www/$DB_NAME
 cd /var/www/$DB_NAME
 
 # WP DOWNLOAD and prep
-echo wp download
-echo wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=localhost
+wp download
+wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=localhost
 
 # Get other needed information
 echo -n "Site URL: "
