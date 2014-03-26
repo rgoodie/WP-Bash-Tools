@@ -3,13 +3,14 @@ DB_ROOT="root"
 SITE_TITLE="SoC WP Instance"
 SITE_ADMIN="soc_admin"
 SITE_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`
-SITE_EMAIL="socwebmaster@northwestern.edu"
 DB_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`
 
 
 
 # Get information from user
 echo "Enter information as prompted. Avoid spaces in name fields:"
+echo -n "Email address for site:"
+READ SITE_EMAIL
 echo -n "New site/database name: "
 read DB_NAME
 echo -n "New database user: "
