@@ -1,49 +1,48 @@
 # CONST
+SERVER_ROOT="192.168.33.10"
 DB_ROOT="root"
-SITE_TITLE="SoC WP Instance"
+SITE_TITLE="WP_Instance"
 SITE_ADMIN="soc_admin"
-SITE_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`
-DB_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`
+SITE_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8 | tr -cd '[:alpha:]'`
+DB_PASS=`tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8 | tr -cd '[:alpha:]' `
+SITE_EMAIL=email@example.com
+
 
 
 
 # Get information from user
 echo "Enter information as prompted. Avoid spaces in name fields:"
-echo -n "Email address for site:"
-read SITE_EMAIL
 echo -n "New site/database name: "
 read DB_NAME
-echo -n "New database user: "
-read DB_USER
-echo -n "New database password: "
-stty -echo 
-read 
-stty echo 
-echo   
 
-#DB ADMIN
+# Construct other values based on DB_NAME
+DB_USER=$DB_NAME-user
 DB_ADMIN=$DB_NAME-admin
 
-echo "Be ready to enter admin password for database"
-
 # Create the database, user, and grant privileges
-mysql -u $DB_ROOT -p  -e "CREATE DATABASE $DB_NAME; CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS'; GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';"
+echo "Enter mysql root admin password:"
+mysql -u $DB_ROOT -p -e "DROP DATABASE IF EXISTS $DB_NAME; CREATE DATABASE $DB_NAME;  GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS'; "
 
 
-# Install to current folder
-mkdir -p /var/www/$DB_NAME
-cd /var/www/$DB_NAME
+# Download WP's latest
+WWW_PATH="/var/www"
+mkdir -p $WWW_PATH
+cd $WWW_PATH
+#wget  -O $WWW_PATH/tmp.tgz http://wordpress.org/latest.tar.gz 
+tar xf $WWW_PATH/tmp.tgz
+mv $WWW_PATH/wordpress $WWW_PATH/$DB_NAME
+#rm $WWW_PATH/tmp.tgz
 
-# WP DOWNLOAD and prep
-wp download
-wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=localhost
+# Prep Install 
+wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=localhost --path=$WWW_PATH/$DB_NAME
 
 # Get other needed information
-echo -n "Site URL: "
-read SITE_URL
+SITE_URL="http://$SERVER_ROOT/$DB_NAME"
 
 # WP CORE INSTALL
-wp core install -url=$SITE_URL --title="$SITE_TITLE" ----admin_name=$SITE_ADMIN admin_email=$SITE_EMAIL --admin_password=$SITE_PASS
+echo =====================
+wp core install --url=$SITE_URL --title=\"$SITE_TITLE\" --admin_name=$SITE_ADMIN --admin_email=$SITE_EMAIL --admin_password=$SITE_PASS --path=$WWW_PATH/$DB_NAME
+echo =====================
 
 echo SAVE THIS INFO
 echo $SITE_URL/wp-admin
