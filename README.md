@@ -3,6 +3,10 @@ Vagrant and Wordpress
 
 A set of files to provision Wordpress on Vagrant. It uses a combination of tools such as Vagrant, VirtualBox, and WP_CLI to get a test environment for WordPress up and going quickly.
 
+Gotchas to provisioning
+=======================
+Well I've had to move the mysql-server install to the second script that is run after you `vagrant ssh` in. This is due to mysql-server install scripts asking for user input during the install. This didn't work too well with provisioning. So I've moved it. Is there a better way. Oh I'm sure. But this is a learning exercise for me. 
+
 How to use
 ==========
 1. Clone this repo to a new folder. 
