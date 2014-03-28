@@ -1,4 +1,9 @@
-Vagrant and Wordpress
+
+Update
+======
+I'm changing this to a set of scripts to mangage wordpress sites. I've found a nicer install at [http://vagrantpress.org/] for vagrant and WordPress. 
+
+Old Vagrant and Wordpress
 ====================
 
 A set of files to provision Wordpress on Vagrant. It uses a combination of tools such as Vagrant, VirtualBox, and WP_CLI to get a test environment for WordPress up and going quickly.
