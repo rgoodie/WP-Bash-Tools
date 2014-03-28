@@ -1,7 +1,6 @@
-
 Update
 ======
-I'm changing this to a set of scripts to mangage wordpress sites. I've found a nicer install at [http://vagrantpress.org/] for vagrant and WordPress. 
+I'm changing this to a set of scripts to mangage wordpress sites. I've found a nicer install at [http://vagrantpress.org/] for vagrant and WordPress. When someone does it better, default to them and get back to the stuff you enjoy! :)
 
 Old Vagrant and Wordpress
 ====================
