@@ -7,15 +7,18 @@ Gotchas to provisioning
 =======================
 Well I've had to move the mysql-server install to the second script that is run after you `vagrant ssh` in. This is due to mysql-server install scripts asking for user input during the install. This didn't work too well with provisioning. So I've moved it. Is there a better way. Oh I'm sure. But this is a learning exercise for me. 
 
-How to use
-==========
+How to use (from host machine)
+==============================
 1. Clone this repo to a new folder. 
-2. Execute a "vagrant up" and/or "vagrant reload --provision" as typical. 
-3. Log in to the box  using "vagrant ssh"
-4. Navigate to the folder $`cd /vagrant`
-5. Execute $`service-setup.sh`
-6. Execute $`install_WPCLI.sh`
-7. Execute $`setup_wp_site.sh` 
+2. Execute a `vagrant up` and/or "vagrant reload --provision" as typical. 
+3. Log in to the box  using `vagrant ssh`
+
+== Once in the VM (through vagrant ssh)
+- Navigate to the folder $`cd /vagrant`
+- Execute $`./bootstrap.sh` (if it didn't run under provision)
+- Execute $`service-setup.sh`
+- Execute $`install_WPCLI.sh`
+- Execute $`setup_wp_site.sh` 
 
 Requirements
 ============
