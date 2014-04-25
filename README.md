@@ -13,7 +13,7 @@ How to use (from host machine)
 2. Execute a `vagrant up` and/or "vagrant reload --provision" as typical. 
 3. Log in to the box  using `vagrant ssh`
 
-== Once in the VM (through vagrant ssh)
+==Once in the VM (through vagrant ssh)
 - Navigate to the folder $`cd /vagrant`
 - Execute $`./bootstrap.sh` (if it didn't run under provision)
 - Execute $`service-setup.sh`
