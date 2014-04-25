@@ -12,9 +12,10 @@ How to use
 1. Clone this repo to a new folder. 
 2. Execute a "vagrant up" and/or "vagrant reload --provision" as typical. 
 3. Log in to the box  using "vagrant ssh"
-4. Navigate to the folder /vagrant
-5. Execute service-setup.sh
-6. Execute setup_wp_site.sh 
+4. Navigate to the folder $`cd /vagrant`
+5. Execute $`service-setup.sh`
+6. Execute $`install_WPCLI.sh`
+7. Execute $`setup_wp_site.sh` 
 
 Requirements
 ============
