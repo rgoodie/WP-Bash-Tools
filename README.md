@@ -42,7 +42,7 @@ Requirements
 
 Other
 =====
-Database and site passwords are gereated automatically for you using `tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`
+Database and site passwords are gereated automatically for you using `tr -cd '[:alpha:]' </dev/urandom | base64 | head -c 8`. If this does make it to a production server (which it shouldn't), please use longer, better passwords. But for a temporary, disposable VM these should be good enough. 
 
 
 Disclaimer of Warranty
