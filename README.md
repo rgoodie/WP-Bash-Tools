@@ -17,9 +17,9 @@ Once in the VM (through vagrant ssh)
 ====================================
 - Navigate to the vagrant folder $`cd /vagrant`
 - $`./bootstrap.sh` (if it didn't run under provision)
-- $`service-setup.sh`
-- $`install_WPCLI.sh`
-- $`setup_wp_site.sh` 
+- $`./service-setup.sh`
+- $`./install_WPCLI.sh`
+- $`./setup_wp_site.sh` 
 
 Requirements
 ============
