@@ -21,6 +21,18 @@ Once in the VM (through vagrant ssh)
 - $`./install_WPCLI.sh`
 - $`./setup_wp_site.sh` 
 
+When all is said and done, you should see something like this in the terminal window
+
+```
+      To edit the site visit: http://192.168.33.10/wp/wp-admin
+      Admin User : soc_admin
+      Admin Pass : amPqSErC
+      Admin Email : email@example.com
+      Database User : wp-user
+      Database Pass : dXFEUHdJ
+```
+
+
 Requirements
 ============
 * virtualbox -- sudo apt-get install virtualbox
