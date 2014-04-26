@@ -9,9 +9,11 @@ Well I've had to move the mysql-server install to the second script that is run 
 
 How to use (from host machine)
 ==============================
-1. Clone this repo to a new folder. 
-2. Execute a `vagrant up` and/or "vagrant reload --provision" as typical. 
-3. Log in to the box  using `vagrant ssh`
+- Install vagrant (sudo apt-get vagrant)
+- Install precise 32 $`vagrant box add precise32 http://files.vagrantup.com/precise32.box`
+- Clone repo `git clone ...` and `cd `{folder name}
+- Execute a `vagrant up` and/or "vagrant reload --provision" as typical. 
+- Log in to the box  using `vagrant ssh`
 
 Once in the VM (through vagrant ssh)
 ====================================
@@ -37,7 +39,7 @@ Requirements
 ============
 * virtualbox -- sudo apt-get install virtualbox
 * vagrant -- http://vagrantup.com
-* precise32 box -- one of the more standard boxes floating around, $`vagrant box add precise32 http://files.vagrantup.com/precise32.box`
+* precise32 box -- one of the more standard boxes floating around, $`vagrant box add precise32 http://files.vagrantup.com/precise32.box` (see http://www.vagrantbox.es/)
 
 
 Other
