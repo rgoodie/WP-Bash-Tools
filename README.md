@@ -37,7 +37,7 @@ Requirements
 ============
 * virtualbox -- sudo apt-get install virtualbox
 * vagrant -- http://vagrantup.com
-* precise32 box -- one of the more standard boxes floating around
+* precise32 box -- one of the more standard boxes floating around, $`vagrant box add precise32 http://files.vagrantup.com/precise32.box`
 
 
 Other
