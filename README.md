@@ -21,6 +21,7 @@ Once in the VM (through vagrant ssh)
 - $`./bootstrap.sh` (if it didn't run under provision)
 - $`./service-setup.sh`
 - $`./install_WPCLI.sh`
+- Change owner ship of /var/www to vagrant (`sudo chown vagrant -R /var/www`)
 - $`./setup_wp_site.sh` 
 
 When all is said and done, you should see something like this in the terminal window
